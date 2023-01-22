@@ -69,3 +69,45 @@ void LEDController::dispColorModes(char md) {
             break;
     }
 }
+
+void LEDController::dispRGB(int r, int g, int b) {
+  colorWipe(strip.Color(r, g, b, 0), 50);
+}
+
+
+void LEDController::stringDecode(String command){
+  String redDecode = "", greenDecode = "", blueDecode = "";
+  int currDecode = 1;
+  int lengthString =  command.length();
+  for (int i = 0; i < lengthString; i++){
+    String currentChar = (String)command[i];
+    if (currentChar == ","){
+      currDecode++;
+    }
+    else {
+      if (currDecode == 1){
+        redDecode = redDecode + currentChar;
+      }
+      else if (currDecode == 2){
+        greenDecode = greenDecode + currentChar;
+      }
+      else if (currDecode == 3){
+        blueDecode = blueDecode + currentChar;
+      }
+    }
+  }
+  redDecoded = redDecode.toInt();
+  greenDecoded = greenDecode.toInt();
+  blueDecoded = blueDecode.toInt();
+  /*Serial.print(redDecoded); Serial.print("!");
+  Serial.print(greenDecoded); Serial.print("!");
+  Serial.println(blueDecoded);*/
+}
+
+void LEDController::printRGB(){
+  Serial.print(redDecoded);
+  Serial.print(", ");
+  Serial.print(greenDecoded);
+  Serial.print(", ");
+  Serial.println(blueDecoded);
+}

@@ -14,8 +14,25 @@ public:
     void rainbowCycle(uint8_t wait);
     uint32_t Wheel(byte WheelPos);
     void dispColorModes(char md);
+    void dispRGB(int r, int g, int b);
+
+    void stringDecode(String command);
+    void printRGB();
+
+    int getR() const {
+      return redDecoded;
+    }
+    int getG() const {
+      return greenDecoded;
+    }
+    int getB() const {
+      return blueDecoded;
+    }
 private:
     Adafruit_NeoPixel strip = Adafruit_NeoPixel(24, PIN, NEO_GRBW + NEO_KHZ800);
+    int redDecoded;
+    int greenDecoded;
+    int blueDecoded;
 };
 
 #endif
