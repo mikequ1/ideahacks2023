@@ -34,3 +34,7 @@ void BluetoothSender::BluetoothSenderLoop() {
   }
   delay(20);
 }
+
+void BluetoothSender::BluetoothStringSend(char* cstr) {
+  SerialBT.write(cstr)
+}

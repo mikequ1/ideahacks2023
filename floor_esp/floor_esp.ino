@@ -27,11 +27,15 @@ void loop() {
       buffer[pos] = readch;
       pos++;
     } else {
+      buffer[pos] = '\0';
       pos = 0;
       strcpy(out, buffer);
       memset(buffer, 0, 128);
       Serial.println(out);
+      while (True){
+        bs->BluetoothStringSend(out);
+      }
     }
   }
-  bs->BluetoothSenderLoop();
+  
 }
