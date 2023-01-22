@@ -36,5 +36,11 @@ void BluetoothSender::BluetoothSenderLoop() {
 }
 
 void BluetoothSender::BluetoothStringSend(char* cstr) {
-  SerialBT.write(cstr)
+  int idx = 0;
+  while (cstr[idx] != '\0'){
+    SerialBT.write(cstr[idx]);
+    ++idx;
+  }
+  SerialBT.write(cstr[idx]);
+  
 }

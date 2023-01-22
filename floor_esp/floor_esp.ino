@@ -32,9 +32,7 @@ void loop() {
       strcpy(out, buffer);
       memset(buffer, 0, 128);
       Serial.println(out);
-      while (True){
-        bs->BluetoothStringSend(out);
-      }
+      bs->BluetoothStringSend(out);
     }
   }
   

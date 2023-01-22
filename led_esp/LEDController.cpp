@@ -71,7 +71,7 @@ void LEDController::dispColorModes(char md) {
 }
 
 void LEDController::dispRGB(int r, int g, int b) {
-  colorWipe(strip.Color(r, g, b, 0), 50);
+  colorWipe(strip.Color(r, g, b, 0), 10);
 }
 
 

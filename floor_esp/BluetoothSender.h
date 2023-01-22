@@ -11,6 +11,7 @@ class BluetoothSender {
 public:
     BluetoothSender();
     void BluetoothSenderLoop();
+    void BluetoothStringSend(char* cstr);
 private:
     BluetoothSerial SerialBT;
     int i = 0;
