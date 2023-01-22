@@ -1,7 +1,6 @@
 #include "BluetoothSender.h"
 
 BluetoothSender::BluetoothSender(){
-    Serial.begin(115200);
     SerialBT.begin("ESP32testm", true); 
     Serial.println("The device started in master mode, make sure remote BT device is on!");
     
